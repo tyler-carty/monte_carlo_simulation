@@ -34,13 +34,13 @@ Once created, you'll need to activate the virtual environment. The command varie
 
 bashCopy code
 
-`source project_env/bin/activate`
+`source project_env/Scripts/activate`
 
 - **On Windows:**
 
 bashCopy code
 
-`project_env\Scripts\activate`
+`source project_env/Scripts/activate`
 
 When the virtual environment is activated, your shell's prompt will change, and it will show the name of the virtual environment, confirming that it's active. For our project, it should look something like this: `(project_env) Your-Computer:Your-Directory UserName$`
 
