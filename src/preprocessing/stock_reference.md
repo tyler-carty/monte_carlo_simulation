@@ -9,7 +9,7 @@ This document lists popular stock tickers and their corresponding company names 
 | GOOGL  | Alphabet Inc. (Google)     |
 | AMZN   | Amazon.com, Inc.           |
 | TSLA   | Tesla, Inc.                |
-| FB     | Meta Platforms, Inc. (Facebook) |
+| META     | Meta Platforms, Inc. (Facebook) |
 | NFLX   | Netflix, Inc.              |
 | JPM    | JPMorgan Chase & Co.       |
 | PG     | Procter & Gamble Co.       |

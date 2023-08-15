@@ -1,7 +1,7 @@
 import yfinance as yf
 
 # Define the tickers of your assets
-assets = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "FB", "NFLX", "JPM", "PG", "JNJ", "V", "KO", "BA", "INTC", "DIS", "GS", "NKE", "XOM", "WMT", "IBM"]
+assets = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "META", "NFLX", "JPM", "PG", "JNJ", "V", "KO", "BA", "INTC", "DIS", "GS", "NKE", "XOM", "WMT", "IBM"]
 
 # Fetch data
 data = yf.download(assets, start="2010-01-01", end="2023-01-01", group_by='ticker')
