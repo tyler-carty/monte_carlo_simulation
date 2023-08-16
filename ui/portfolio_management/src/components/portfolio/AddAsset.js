@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import DisplayPortfolio from './DisplayPortfolio';
 import { PortfolioContext } from '../../context/PortfolioContext';
 import '../../assets/css/common/Table.css'
 
@@ -36,6 +35,7 @@ function AddAsset() {
                 <button className='button' onClick={handleAddAsset}>Add Asset</button>
 
             {portfolio.error && <p style={{ color: 'red' }}>{portfolio.error}</p>}
+            {portfolio.message && <p style={{ color: 'green' }}>{portfolio.message}</p>}
             </div>
         </div>
     );
