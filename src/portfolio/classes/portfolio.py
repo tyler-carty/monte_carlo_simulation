@@ -5,7 +5,7 @@ from utilities.helpers import validate_asset
 import plotly.graph_objects as go
 import yfinance as yf
 import numpy as np
-import csv
+import json
 
 # Initialize Portfolio class
 class Portfolio:
@@ -21,6 +21,26 @@ class Portfolio:
         for asset, weight in zip(self.assets, self.weights):
             print(f"Asset: {asset} | Weight: {weight*100:.2f}%")
         print(f"Investment Horizon: {self.investment_horizon} days")
+
+    def save_to_json(self, filename='portfolio.json'):
+        data = {
+            'assets': self.assets,
+            'weights': self.weights,
+            'investment_horizon': self.investment_horizon,
+            'simulated_paths': self.simulated_paths
+        }
+        
+        with open(filename, 'w') as file:
+            json.dump(data, file)
+
+    def load_from_json(self, filename='portfolio.json'):
+        with open(filename, 'r') as file:
+            data = json.load(file)
+
+            self.assets = data['assets']
+            self.weights = data['weights']
+            self.investment_horizon = data['investment_horizon']
+            self.simulated_paths = data['simulated_paths']
 
     # Visualize simulation
     def visualize_simulation(self):
@@ -70,13 +90,16 @@ class Portfolio:
         self.investment_horizon = days
 
     # Perform Monte Carlo simulation
-    def monte_carlo_simulation(self, num_simulations=1000):
+    def monte_carlo_simulation(self, num_simulations):
         if not self.assets or not self.weights or not self.investment_horizon:
             print("Error: Please add assets, weights and an investment horizon to the portfolio before performing simulations.")
             return
         
         # Get historical data for assets in the portfolio
         data = yf.download(self.assets, start="2020-01-01", end="2023-01-01")['Adj Close']
+
+        # reset the self.simulated_paths variable
+        self.simulated_paths = None
 
         # Calculate daily returns
         returns = data.pct_change()

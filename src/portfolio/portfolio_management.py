@@ -1,8 +1,17 @@
 # Import important libraries and modules
 from classes.portfolio import Portfolio
+import os
 
 def main():
     portfolio = Portfolio()
+
+    # An option to load a portfolio from a JSON file
+    choice = input("Would you like to load the saved portfolio from a JSON file? (y/n): ")
+    if choice == "y" and os.path.exists("portfolio.json"):
+        portfolio.load_from_json("portfolio.json")
+    else:
+        print("No saved portfolio found. Please add assets to your portfolio.")
+
 
     while True:
         print("\nPortfolio Management Menu:")
@@ -27,6 +36,7 @@ def main():
         elif choice == "4":
             num_simulations = int(input("Enter number of simulations (e.g., 10000): "))
             portfolio.monte_carlo_simulation(num_simulations)
+            portfolio.save_to_json()
         elif choice == "5":
             if not portfolio.simulated_paths:
                 portfolio.visualize_simulation()
