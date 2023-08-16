@@ -5,13 +5,12 @@ import os
 def main():
     portfolio = Portfolio()
 
-    # An option to load a portfolio from a JSON file
-    choice = input("Would you like to load the saved portfolio from a JSON file? (y/n): ")
-    if choice == "y" and os.path.exists("portfolio.json"):
-        portfolio.load_from_json("portfolio.json")
-    else:
-        print("No saved portfolio found. Please add assets to your portfolio.")
-
+    # Check if a portfolio already exists
+    if os.path.exists("portfolio.json"):
+        # Ask user if they want to load the portfolio
+        choice = input("A portfolio already exists. Do you want to load it? (y/n): ")
+        if choice == "y":
+            portfolio.load_from_json()
 
     while True:
         print("\nPortfolio Management Menu:")
