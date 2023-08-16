@@ -1,69 +1,69 @@
-# Quantitative Risk Management System: Python Environment Setup
 
-Welcome to the Quantitative Risk Management System project! This README will guide you through the process of setting up your Python environment to ensure you have all the necessary dependencies in place.
+# Quantitative Risk Management System: Complete Environment Setup
 
-## 1. **Prerequisites**
+Welcome to the Quantitative Risk Management System project! This README will guide you through the process of setting up your Python environment, Django API, and React frontend to ensure you have all the necessary dependencies in place.
+
+## **1. Prerequisites**
 
 Before we begin, ensure you have the following installed on your machine:
 
 - Python (version 3.6 or higher)
 - `pip` (Python package installer)
 - `venv` (Python’s standard utility module)
+- Node.js & npm (for React app setup)
 
-## 2. **Setting Up a Virtual Environment**
-
-A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated environments for them. For this project, we'll be setting up a virtual environment to manage our dependencies.
-
-**Step-by-step Guide:**
+## **2. Setting Up a Python Virtual Environment**
 
 ### a. Create a Virtual Environment
 
 Navigate to the directory where you want to set up your project and run the following command:
 
-bashCopy code
-
 `python3 -m venv project_env`
-
-This command will create a new directory named `project_env` in your project directory. Inside this folder, you'll find directories containing a copy of the Python interpreter, the standard library, and various supporting files.
 
 ### b. Activate the Virtual Environment
 
-Once created, you'll need to activate the virtual environment. The command varies based on your operating system:
-
 - **On macOS and Linux:**
 
-bashCopy code
-
-`source project_env/Scripts/activate`
+`source project_env/bin/activate`
 
 - **On Windows:**
 
-bashCopy code
+`project_env\Scripts\activate`
 
-`source project_env/Scripts/activate`
+## **3. Installing Necessary Libraries**
 
-When the virtual environment is activated, your shell's prompt will change, and it will show the name of the virtual environment, confirming that it's active. For our project, it should look something like this: `(project_env) Your-Computer:Your-Directory UserName$`
+With your virtual environment activated, run the following command:
 
-## 3. **Installing Necessary Libraries**
+`pip install yfinance pandas numpy django djangorestframework`
 
-With your virtual environment activated, it's time to install the necessary libraries.
+## **4. Starting the Django API**
 
-Run the following command:
+Navigate to the `api` directory and run the following command to start the Django server:
 
-bashCopy code
+`python manage.py runserver`
 
-`pip install yfinance pandas numpy`
+## **5. Setting Up the React App**
 
-This command will install `yfinance` for data collection, `pandas` for data manipulation, and `numpy` for numerical computations.
+- Navigate to the `ui` directory
 
-## 4. **Deactivating the Virtual Environment**
+- Install Dependencies
 
-Once you're done working on the project for the time being, you can deactivate the virtual environment and return to your global Python environment by simply running:
+`npm install`
 
-bashCopy code
+- Start the React App
+
+`npm start`
+
+## **6. Deactivating the Virtual Environment**
+
+Once done working, deactivate the virtual environment using:
 
 `deactivate`
 
-## 5. **Re-activating the Virtual Environment**
+## **7. Re-activating the Virtual Environment**
 
-Remember, every time you come back to work on this project, you should activate the virtual environment using the activation command specified in step 2b. This ensures that you're always working with the right dependencies and in the right environment.
+When returning to work on this project, activate the virtual environment as specified in step 2b.
+
+----------
+
+This should provide you with a comprehensive guide to set up, run, and manage the project. Adjust the instructions as per your project's specifics, such as any other libraries or dependencies you decide to add later on.
