@@ -1,0 +1,23 @@
+/* Styling the table itself */
+table {
+    width: 100%;  /* Take up the full container width. Adjust as needed. */
+    border-collapse: collapse;  /* Removes the double borders */
+    margin: 20px 0;  /* Add some margin at the top and bottom of the table */
+}
+
+/* Adding borders and padding to table cells (both header and body) */
+table th, table td {
+    border: 1px solid #ddd;  /* Light grey border */
+    padding: 8px 12px;  /* Padding for top/bottom and left/right */
+    text-align: left;  /* Left-align the text */
+}
+
+/* Adding some background color to table headers for better visibility */
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Adding a hover effect for table rows */
+table tr:hover {
+    background-color: #f5f5f5;
+}
