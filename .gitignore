@@ -2,3 +2,4 @@
 daily_returns.csv
 __pycache__
 portfolio.json
+db.sqlite3
