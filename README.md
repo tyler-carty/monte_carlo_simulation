@@ -28,7 +28,7 @@ Navigate to the directory where you want to set up your project and run the foll
 
 - **On Windows:**
 
-`project_env\Scripts\activate`
+`source project_env/Scripts/activate`
 
 ## **3. Installing Necessary Libraries**
 
