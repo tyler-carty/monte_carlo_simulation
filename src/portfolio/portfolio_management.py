@@ -12,6 +12,7 @@ def main():
         if choice == "y":
             portfolio.load_from_json()
 
+    # Main menu
     while True:
         print("\nPortfolio Management Menu:")
         print("1. Add Asset")
