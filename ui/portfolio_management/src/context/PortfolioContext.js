@@ -16,6 +16,8 @@ export function PortfolioProvider({ children }) {
     const [updateMessage, setUpdateMessage] = useState(null);
 
     const [investmentHorizon, setInvestmentHorizon] = useState(252);
+    const [portfolioName, setPortfolioName] = useState('Default Portfolio Name');
+    const [portfolios, setPortfolios] = useState([]);
 
     const validateAssetName = async (assetName) => {
         try {
@@ -27,6 +29,32 @@ export function PortfolioProvider({ children }) {
             }
         } catch (error) {
             return false;
+        }
+    }
+
+    const savePortfolio = async () => {
+        try {
+            const payload = {
+                name: portfolioName,
+                investment_horizon: investmentHorizon,
+                assets: assets.map((asset, index) => ({
+                    asset_name: asset,  // Change "ticker" to "asset_name"
+                    weight: weights[index]
+                }))
+            };
+    
+            console.log("Payload: ", payload);
+    
+            const response = await axios.post('http://localhost:8000/portfolios/', payload);
+            
+            if (response.status === 201) {  // Successful POST requests usually return a 201 status
+                console.log("Portfolio saved successfully!");
+                setPortfolios(prevPortfolios => [...prevPortfolios, response.data]);
+            } else {
+                console.error("There was an issue saving the portfolio.");
+            }
+        } catch (error) {
+            console.error("An error occurred while saving the portfolio:", error);
         }
     }
 
@@ -75,6 +103,10 @@ export function PortfolioProvider({ children }) {
         setUpdateMessage("Investment horizon updated successfully.")
     };
 
+    const savePortfolioName = (name) => {
+        setPortfolioName(name);
+    };
+
     const display = () => {
         return assets.map((asset, index) => (
             {
@@ -88,7 +120,7 @@ export function PortfolioProvider({ children }) {
     const sum = (array) => array.reduce((acc, val) => acc + val, 0);
 
     return (
-        <PortfolioContext.Provider value={{ assets, weight, index, error, message, removeMessage, updateMessage, removeAsset ,addAsset, investmentHorizon, updateInvestmentHorizon ,display }}>
+        <PortfolioContext.Provider value={{ assets, weight, index, error, message, removeMessage, updateMessage, removeAsset ,addAsset, investmentHorizon, updateInvestmentHorizon, display, portfolios, savePortfolio, portfolioName, savePortfolioName }}>
             {children}
         </PortfolioContext.Provider>
     );

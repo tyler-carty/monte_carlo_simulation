@@ -6,14 +6,6 @@ function SidebarMenu({ setSelectedFunction }) {
 
     return (
         <div className='center-buttons'>
-            <button 
-                type="button" 
-                className="button"
-                onClick={() => {
-                    setSelectedFunction('display');
-                }}>
-                Display Portfolio
-            </button>
             <button
                 type="button"
                 className="button"
@@ -21,6 +13,14 @@ function SidebarMenu({ setSelectedFunction }) {
                     setSelectedFunction('addAsset');
                 }}>
                 Add Asset
+            </button>
+            <button
+                type="button"
+                className="button"
+                onClick={() => {
+                    setSelectedFunction('savePortfolio');
+                }}>
+                Review and Save Portfolio
             </button>
             <button
                 type="button"

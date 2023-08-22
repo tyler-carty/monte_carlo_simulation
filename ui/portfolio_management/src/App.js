@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import SidebarMenu from './components/common/sidebarMenu';
-import DisplayPortfolio from './components/portfolio/DisplayPortfolio';
 import AddAsset from './components/portfolio/AddAsset';
 import RunSimulation from './components/portfolio/RunSimulation';
 import { PortfolioProvider } from './context/PortfolioContext';
+import SavePortfolioPage from './components/portfolio/ReviewPortfolioPage';
 
 function App() {
     const [selectedFunction, setSelectedFunction] = useState(null);
@@ -11,17 +11,17 @@ function App() {
     let renderFunctionComponent;
 
     switch (selectedFunction) {
-        case 'display':
-            renderFunctionComponent = <DisplayPortfolio />;
-            break;
         case 'addAsset':
             renderFunctionComponent = <AddAsset />;
+            break;
+        case 'savePortfolio':
+            renderFunctionComponent = <SavePortfolioPage />;
             break;
         case 'runSimulation':
             renderFunctionComponent = <RunSimulation />;
             break;
         default:
-            renderFunctionComponent = <DisplayPortfolio />;
+            renderFunctionComponent = <AddAsset />;
             break;
     }
 
