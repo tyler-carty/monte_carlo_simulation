@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { PortfolioContext } from '../../context/PortfolioContext';
 import PortfolioTable from './PortfolioTable.js'
 import InvestmentHorizonTable from './InvestmentHorizonTable';
-import PortfolioLoader from './PortfolioLoader.js'
-import PortfolioSaver from './PortfolioSaver.js'
+import PortfolioManagementSection from './PortfolioManagementSection';
 import axios from 'axios';
 
 function SavePortfolioPage() {
@@ -40,8 +39,7 @@ function SavePortfolioPage() {
                 )}
 
                 <InvestmentHorizonTable />
-                <PortfolioSaver onUpdatePortfolios={fetchPortfolios} />
-                <PortfolioLoader key={portfolios.length} portfolios={portfolios} />
+                <PortfolioManagementSection portfolios={portfolios} onUpdatePortfolios={fetchPortfolios} />
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ function PortfolioLoader() {
     const [availablePortfolios, setAvailablePortfolios] = useState([]);
     const [selectedPortfolio, setSelectedPortfolio] = useState(null);
     const portfolioContext = useContext(PortfolioContext);
+    const [message, setMessage] = useState('');  // TODO: Display a message when a portfolio is loaded successfully
 
     useEffect(() => {
         // Fetch all portfolios when the component mounts
@@ -33,7 +34,7 @@ function PortfolioLoader() {
             //     });
 
             console.log("Selected portfolio: ", selectedPortfolio);
-
+            setMessage('Portfolio loaded successfully!');
         }
     };
 
@@ -47,6 +48,7 @@ function PortfolioLoader() {
                 ))}
             </select>
             <button className='button' onClick={handleLoadPortfolio}>Load Portfolio</button>
+            {message && <p style={{ color: 'green' }}>{message}</p>}
         </div>
     );
 }

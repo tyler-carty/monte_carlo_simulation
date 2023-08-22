@@ -6,6 +6,7 @@ import '../../assets/css/common/Table.css';
 function PortfolioSaver({ onUpdatePortfolios }) {
     const [existingPortfolioNames, setExistingPortfolioNames] = useState([]);
     const [error, setError] = useState('');
+    const [message, setMessage] = useState('');  // TODO: Display a message when a portfolio is saved successfully
 
     const portfolio = useContext(PortfolioContext);
 
@@ -18,6 +19,7 @@ function PortfolioSaver({ onUpdatePortfolios }) {
                 setExistingPortfolioNames(names);
             } catch (error) {
                 console.error("There was an error fetching the portfolios!", error);
+                setError('There was an error fetching the portfolios!');
             }
         };
 
@@ -31,6 +33,7 @@ function PortfolioSaver({ onUpdatePortfolios }) {
         } else {
             await portfolio.savePortfolio();  // Use context's save function asynchronously
             await onUpdatePortfolios();  // Wait for portfolios to be updated
+            setMessage('Portfolio saved successfully!');
         }
     };
 
@@ -44,6 +47,7 @@ function PortfolioSaver({ onUpdatePortfolios }) {
             />
             <button className='button' onClick={handleSavePortfolio}>Save Portfolio</button>
             {error && <p style={{ color: 'red' }}>{error}</p>}
+            {message && <p style={{ color: 'green' }}>{message}</p>}
         </div>
     );
 }
