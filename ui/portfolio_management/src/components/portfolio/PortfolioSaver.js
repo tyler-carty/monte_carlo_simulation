@@ -3,31 +3,34 @@ import { PortfolioContext } from '../../context/PortfolioContext';
 import axios from 'axios';
 import '../../assets/css/common/Table.css';
 
-function PortfolioSaver() {
+function PortfolioSaver({ onUpdatePortfolios }) {
     const [existingPortfolioNames, setExistingPortfolioNames] = useState([]);
     const [error, setError] = useState('');
 
     const portfolio = useContext(PortfolioContext);
 
     useEffect(() => {
-        // Fetch the names of all existing portfolios to check for duplicates
-        axios.get('http://localhost:8000/api/portfolios/')
-            .then(response => {
+        // Asynchronous function to fetch the names of all existing portfolios
+        const fetchExistingPortfolioNames = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/portfolios/');
                 const names = response.data.map(portfolio => portfolio.name);
                 setExistingPortfolioNames(names);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error("There was an error fetching the portfolios!", error);
-            });
+            }
+        };
+
+        fetchExistingPortfolioNames();
     }, []);
 
-    const handleSavePortfolio = () => {
+    const handleSavePortfolio = async () => {
         if (existingPortfolioNames.includes(portfolio.portfolioName)) {
             setError('A portfolio with this name already exists.');
             return;
-        }
-        else {
-            portfolio.savePortfolio();  // Use context's save function
+        } else {
+            await portfolio.savePortfolio();  // Use context's save function asynchronously
+            await onUpdatePortfolios();  // Update portfolios list after saving
         }
     };
 
