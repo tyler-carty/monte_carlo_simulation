@@ -30,7 +30,7 @@ function PortfolioSaver({ onUpdatePortfolios }) {
             return;
         } else {
             await portfolio.savePortfolio();  // Use context's save function asynchronously
-            await onUpdatePortfolios();  // Update portfolios list after saving
+            await onUpdatePortfolios();  // Wait for portfolios to be updated
         }
     };
 

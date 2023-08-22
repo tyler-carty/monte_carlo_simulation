@@ -17,7 +17,7 @@ function SavePortfolioPage() {
     const fetchPortfolios = async () => {
         try {
             const response = await axios.get('http://localhost:8000/api/portfolios/');
-            setPortfolios(response.data);
+            setPortfolios(prevPortfolios => [...prevPortfolios, ...response.data]);
         } catch (error) {
             console.error("Error fetching portfolios:", error);
         }
@@ -41,7 +41,7 @@ function SavePortfolioPage() {
 
                 <InvestmentHorizonTable />
                 <PortfolioSaver onUpdatePortfolios={fetchPortfolios} />
-                <PortfolioLoader portfolios={portfolios} />
+                <PortfolioLoader key={portfolios.length} portfolios={portfolios} />
             </div>
         </div>
     );
