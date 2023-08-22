@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PortfolioContext } from '../../context/PortfolioContext';
-import axios from 'axios';
 import PortfolioTable from './PortfolioTable.js'
 import InvestmentHorizonTable from './InvestmentHorizonTable';
 import PortfolioLoader from './PortfolioLoader.js'
