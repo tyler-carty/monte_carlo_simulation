@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { PortfolioContext } from '../../context/PortfolioContext';
+import { PortfolioContext } from '../../../context/PortfolioContext';
 import axios from 'axios';
-import '../../assets/css/common/Table.css';
 
 function PortfolioSaver({ onUpdatePortfolios }) {
     const [existingPortfolioNames, setExistingPortfolioNames] = useState([]);

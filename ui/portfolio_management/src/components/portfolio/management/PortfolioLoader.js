@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { PortfolioContext } from '../../context/PortfolioContext';
+import { PortfolioContext } from '../../../context/PortfolioContext';
 
 function PortfolioLoader() {
     const [availablePortfolios, setAvailablePortfolios] = useState([]);

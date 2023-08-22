@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SidebarMenu from './components/common/sidebarMenu';
-import AddAsset from './components/portfolio/AddAsset';
-import RunSimulation from './components/portfolio/RunSimulation';
+import SidebarMenu from './components/layout/sidebarMenu';
+import AddAsset from './components/portfolio/assets/AddAsset';
+import RunSimulation from './components/portfolio/simulation/RunSimulation';
 import { PortfolioProvider } from './context/PortfolioContext';
 import SavePortfolioPage from './components/portfolio/ReviewPortfolioPage';
 

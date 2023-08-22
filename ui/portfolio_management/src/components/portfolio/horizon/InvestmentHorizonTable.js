@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { PortfolioContext } from '../../context/PortfolioContext';
+import { PortfolioContext } from '../../../context/PortfolioContext';
 
 const InvestmentHorizonTable = () => {
 

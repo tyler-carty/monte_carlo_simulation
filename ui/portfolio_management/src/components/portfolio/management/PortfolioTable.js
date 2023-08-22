@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { PortfolioContext } from '../../context/PortfolioContext';
-import '../../assets/css/common/Table.css'
+import { PortfolioContext } from '../../../context/PortfolioContext';
+import '../../../assets/css/common/Table.css'
 
 const PortfolioTable = () => {
 

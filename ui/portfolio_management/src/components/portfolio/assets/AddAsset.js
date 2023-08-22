@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { PortfolioContext } from '../../context/PortfolioContext';
-import '../../assets/css/common/Table.css'
+import { PortfolioContext } from '../../../context/PortfolioContext';
+import '../../../assets/css/common/Table.css'
 
 function AddAsset() {
     const [assetName, setAssetName] = useState('');

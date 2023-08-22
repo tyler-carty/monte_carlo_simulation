@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PortfolioContext } from '../../context/PortfolioContext';
-import PortfolioTable from './PortfolioTable.js'
-import InvestmentHorizonTable from './InvestmentHorizonTable';
-import PortfolioManagementSection from './PortfolioManagementSection';
+import PortfolioTable from './management/PortfolioTable.js'
+import InvestmentHorizonTable from './horizon/InvestmentHorizonTable';
+import PortfolioManagementSection from './management/PortfolioManagementSection';
 import axios from 'axios';
 
 function SavePortfolioPage() {

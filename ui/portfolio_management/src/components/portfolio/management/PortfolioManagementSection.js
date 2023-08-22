@@ -1,6 +1,7 @@
 import React from 'react';
 import PortfolioSaver from './PortfolioSaver';
 import PortfolioLoader from './PortfolioLoader';
+import '../../../assets/css/common/Table.css';
 
 function PortfolioManagementSection({ portfolios, onUpdatePortfolios }) {
     return (
