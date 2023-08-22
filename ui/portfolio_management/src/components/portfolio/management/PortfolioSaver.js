@@ -28,11 +28,13 @@ function PortfolioSaver({ onUpdatePortfolios }) {
     const handleSavePortfolio = async () => {
         if (existingPortfolioNames.includes(portfolio.portfolioName)) {
             setError('A portfolio with this name already exists.');
+            setMessage('');
             return;
         } else {
             await portfolio.savePortfolio();  // Use context's save function asynchronously
             await onUpdatePortfolios();  // Wait for portfolios to be updated
             setMessage('Portfolio saved successfully!');
+            setError('');
         }
     };
 
